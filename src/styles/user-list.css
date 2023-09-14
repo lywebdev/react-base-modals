@@ -1,0 +1,16 @@
+.user-list {
+    box-shadow: 0 0 5px 3px rgba(0,0,0,0.1);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-list h3 {
+    font-size: 1.5rem;
+}
+
+#create-user-btn {
+    margin-top: 20px;
+}
