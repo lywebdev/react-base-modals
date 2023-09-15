@@ -3,6 +3,7 @@ import UserList from "./components/UserList/UserList";
 import './styles/app.css';
 import './styles/ui.css';
 import {useState} from "react";
+import Modal from "./components/Modal/Modal";
 
 function App() {
     const [users, setUsers] = useState([
@@ -16,9 +17,15 @@ function App() {
         });
     }
 
+    const showModal = () => {
+        
+    }
+
 
     return (
         <div id="app">
+            <Modal />
+            <p onClick={showModal}>Вызвать модальное окно</p>
             <CreateUserForm addUserHandler={addUserHandler} />
             <div className="clearfix" style={{
                 marginBottom: '30px'
