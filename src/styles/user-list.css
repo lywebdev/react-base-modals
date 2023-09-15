@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px 15px;
 }
 
 .user-list h3 {
@@ -13,4 +14,12 @@
 
 #create-user-btn {
     margin-top: 20px;
+}
+
+.user-list__item {
+    align-self: flex-start;
+}
+
+.user-list__item:not(:last-child) {
+    margin-bottom: 10px;
 }

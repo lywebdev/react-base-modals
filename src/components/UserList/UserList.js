@@ -2,29 +2,15 @@ import UserListItem from "./UserListItem";
 import '../../styles/user-list.css';
 
 const UserList = (props) => {
-    const users = [
-        {name: 'user', age: 18},
-    ];
-
-    let usersExists = users.length > 0;
-
-    let userListItems = '';
-    if (usersExists) {
-        userListItems = users.map(user => (
-            <UserListItem name={user.name} age={user.age} />
-        ));
-    }
+    let usersExists = props.users.length > 0;
 
 
     return (
         <div className='user-list'>
             {!usersExists && <h3>Нет пользователей</h3>}
-            {/*{usersExists && `${userListItems}`}*/}
-            {
-                users.map(user => (
-                    <UserListItem name={user.name} age={user.age} />
-                ))
-            }
+            {usersExists && props.users.map(user => (
+                <UserListItem key={user.id} name={user.name} age={user.age} />
+            ))}
         </div>
     );
 }

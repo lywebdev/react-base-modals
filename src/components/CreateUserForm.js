@@ -2,12 +2,19 @@ import Form from "./Form/Form";
 import Button from "./UI/Button";
 import {useState} from "react";
 
-const CreateUserForm = () => {
+const CreateUserForm = (props) => {
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
 
     const addUserHandler = (event) => {
+        props.addUserHandler({
+            id: Math.random(),
+            name: name,
+            age: age
+        });
 
+        setName('');
+        setAge('');
     }
 
     const changeNameHandler = (event) => {
