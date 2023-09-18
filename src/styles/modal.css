@@ -10,6 +10,24 @@
 
     visibility: hidden;
     overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 10000;
+}
+
+.modal.active {
+    overflow: auto;
+    visibility: visible;
+
+    opacity: 1;
+}
+
+.modal.active .modal__body {
+    animation-name: show_modal;
+    animation-delay: 0s;
+    animation-duration: 0.7s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-in;
 }
 
 .modal__overlay {
@@ -25,7 +43,6 @@
 @keyframes show_modal {
     from {
         transform: translateY(-100%);
-        opacity: 0;
     }
 
     75% {
@@ -33,7 +50,6 @@
     }
 
     to {
-        opacity: 1;
     }
 }
 
@@ -45,12 +61,6 @@
     box-sizing: border-box;
     border-radius: 7px;
     background: #fff;
-
-    animation-name: show_modal;
-    animation-delay: 0s;
-    animation-duration: 0.7s;
-    animation-fill-mode: backwards;
-    animation-timing-function: ease-in;
 }
 
 .modal__title {

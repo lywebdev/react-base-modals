@@ -11,22 +11,21 @@ function App() {
         {id: 2, name: 'test', age: 25},
     ]);
 
+    const [modal, setModal] = useState(false);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalText, setModalText] = useState('');
+
     const addUserHandler = (newUser) => {
         setUsers((prevUsers) => {
             return [...prevUsers, newUser];
         });
     }
 
-    const showModal = () => {
-        
-    }
-
 
     return (
         <div id="app">
-            <Modal />
-            <p onClick={showModal}>Вызвать модальное окно</p>
-            <CreateUserForm addUserHandler={addUserHandler} />
+            <Modal visible={modal} setVisible={setModal} title={modalTitle} text={modalText} />
+            <CreateUserForm addUserHandler={addUserHandler} showModal={() => {setModal(true)}} setModalTitle={setModalTitle} setModalText={setModalText} />
             <div className="clearfix" style={{
                 marginBottom: '30px'
             }}></div>

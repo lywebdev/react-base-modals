@@ -1,12 +1,24 @@
 import './../../styles/modal.css';
 
-const Modal = (title, text, isVisible, setVisible) => {
+const Modal = (props) => {
+    let rootClasses = ['modal'];
+
+    if (props.visible) {
+        rootClasses.push('active');
+    }
+
+    const hideModal = () => {
+        props.setVisible(false);
+    }
+
+
+
     return (
-        <div className='modal'>
+        <div className={rootClasses.join(' ')}>
             <div className="modal__body">
-                <div className="modal__title">заголовок</div>
-                <div className="modal__text">текст модалки</div>
-                <div className="modal__close">Закрыть</div>
+                <div className="modal__title">{props.title}</div>
+                <div className="modal__text">{props.text}</div>
+                <div className="modal__close" onClick={hideModal}>Закрыть</div>
             </div>
             <div className="modal__overlay"></div>
         </div>

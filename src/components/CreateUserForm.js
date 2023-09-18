@@ -6,7 +6,15 @@ const CreateUserForm = (props) => {
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
 
-    const addUserHandler = (event) => {
+    const addUserHandler = () => {
+        if (name.length === 0 || age.length === 0) {
+            props.setModalTitle('Неверно заполнено какое-то из полей');
+            props.setModalText('Проверьте корректность указанного имени и возраста');
+            props.showModal();
+
+            return;
+        }
+
         props.addUserHandler({
             id: Math.random(),
             name: name,
