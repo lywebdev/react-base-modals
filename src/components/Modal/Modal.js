@@ -1,6 +1,6 @@
 import './../../styles/modal.css';
 
-const Modal = (props) => {
+const Modal = (title, text, isVisible, setVisible) => {
     return (
         <div className='modal'>
             <div className="modal__body">
